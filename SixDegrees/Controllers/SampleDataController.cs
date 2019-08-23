@@ -8,7 +8,7 @@ using System.Linq;
 namespace SixDegrees.Controllers
 {
     [Route("api/[controller]")]
-    public class SampleDataController : Controller
+    public class SampleDataController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
         {
