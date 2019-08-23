@@ -1,4 +1,4 @@
-using SixDegrees.DataTransferObjects;
+using SixDegrees.ResourceModels;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
