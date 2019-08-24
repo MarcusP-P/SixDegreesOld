@@ -1,8 +1,8 @@
 namespace SixDegrees.Pages
 {
+    using System.Diagnostics;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.RazorPages;
-    using System.Diagnostics;
 
     /// <summary>
     /// ViewModel for the error page
