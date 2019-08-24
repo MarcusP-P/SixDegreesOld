@@ -21,7 +21,7 @@ namespace SixDegrees
         /// Create the webhost
         /// </summary>
         /// <param name="args">Commandline Arguments</param>
-        /// <returns></returns>
+        /// <returns>A Webhost builder to be used to start the host.</returns>
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
