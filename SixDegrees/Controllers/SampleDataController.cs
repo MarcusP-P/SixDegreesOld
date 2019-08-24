@@ -1,11 +1,11 @@
 namespace SixDegrees.Controllers
 {
-    using Microsoft.AspNetCore.Mvc;
-    using SixDegrees.ResourceModels;
     using System;
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
+    using Microsoft.AspNetCore.Mvc;
+    using SixDegrees.ResourceModels;
 
     /// <summary>
     /// Controller to return API Endpoints
