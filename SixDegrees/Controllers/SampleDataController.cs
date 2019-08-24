@@ -35,6 +35,5 @@ namespace SixDegrees.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             });
         }
-
     }
 }
