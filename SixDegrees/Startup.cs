@@ -31,7 +31,7 @@ namespace SixDegrees
         /// This method gets called by the runtime. Use this method to add services to the container.
         /// </summary>
         /// <param name="services"></param>
-        static public void ConfigureServices(IServiceCollection services)
+        public static void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -47,7 +47,7 @@ namespace SixDegrees
         /// </summary>
         /// <param name="app">Application Builder</param>
         /// <param name="env">Hosting environment</param>
-        static public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public static void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
