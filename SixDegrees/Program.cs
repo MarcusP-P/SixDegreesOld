@@ -1,8 +1,8 @@
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
-
 namespace SixDegrees
 {
+    using Microsoft.AspNetCore;
+    using Microsoft.AspNetCore.Hosting;
+
     /// <summary>
     /// Program startup
     /// </summary>
