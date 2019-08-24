@@ -13,7 +13,7 @@ namespace SixDegrees
     public class Startup
     {
         /// <summary>
-        /// Constructor called with DI.
+        /// Initializes a new instance of the <see cref="Startup"/> class.
         /// </summary>
         /// <param name="configuration">The configuration supplied by DI.</param>
         public Startup(IConfiguration configuration)
