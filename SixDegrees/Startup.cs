@@ -19,7 +19,7 @@ namespace SixDegrees
         /// <param name="configuration">The configuration supplied by DI</param>
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            this.Configuration = configuration;
         }
 
         /// <summary>

@@ -19,14 +19,14 @@ namespace SixDegrees.Pages
         /// <summary>
         /// Do we have a RequestID to show?
         /// </summary>
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+        public bool ShowRequestId => !string.IsNullOrEmpty(this.RequestId);
 
         /// <summary>
         /// Populate the RequestID
         /// </summary>
         public void OnGet()
         {
-            RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
+            this.RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier;
         }
     }
 }
