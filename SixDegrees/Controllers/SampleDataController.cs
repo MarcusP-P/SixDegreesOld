@@ -8,7 +8,7 @@ namespace SixDegrees.Controllers
     using SixDegrees.ResourceModels;
 
     /// <summary>
-    /// Controller to return API Endpoints
+    /// Controller to return API Endpoints.
     /// </summary>
     [Route("api/[controller]")]
     public class SampleDataController : ControllerBase
@@ -19,9 +19,9 @@ namespace SixDegrees.Controllers
         };
 
         /// <summary>
-        /// Return the fake weather for the next 5 days
+        /// Return the fake weather for the next 5 days.
         /// </summary>
-        /// <returns>soem fake weather for the next 5 days</returns>
+        /// <returns>Fake weather for the next 5 days.</returns>
         [HttpGet("[action]")]
 #pragma warning disable CA1822 // Mark members as static
         public IEnumerable<WeatherForecast> WeatherForecasts()

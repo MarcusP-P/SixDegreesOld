@@ -4,23 +4,23 @@ namespace SixDegrees
     using Microsoft.AspNetCore.Hosting;
 
     /// <summary>
-    /// Program startup
+    /// Program startup.
     /// </summary>
     public static class Program
     {
         /// <summary>
-        /// Start the program
+        /// Start the program.
         /// </summary>
-        /// <param name="args">Array of commandline arguments</param>
+        /// <param name="args">Array of commandline arguments.</param>
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
         }
 
         /// <summary>
-        /// Create the webhost
+        /// Create the webhost.
         /// </summary>
-        /// <param name="args">Commandline Arguments</param>
+        /// <param name="args">Commandline Arguments.</param>
         /// <returns>A Webhost builder to be used to start the host.</returns>
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)

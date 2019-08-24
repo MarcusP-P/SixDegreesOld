@@ -5,23 +5,23 @@ namespace SixDegrees.Pages
     using Microsoft.AspNetCore.Mvc.RazorPages;
 
     /// <summary>
-    /// ViewModel for the error page
+    /// ViewModel for the error page.
     /// </summary>
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public class ErrorModel : PageModel
     {
         /// <summary>
-        /// RequestID that caused the error
+        /// RequestID that caused the error.
         /// </summary>
         public string RequestId { get; set; }
 
         /// <summary>
-        /// Do we have a RequestID to show?
+        /// Show the requestID of the error.
         /// </summary>
         public bool ShowRequestId => !string.IsNullOrEmpty(this.RequestId);
 
         /// <summary>
-        /// Populate the RequestID
+        /// Populate the RequestID.
         /// </summary>
         public void OnGet()
         {
