@@ -7,6 +7,9 @@ using System.Linq;
 
 namespace SixDegrees.Controllers
 {
+    /// <summary>
+    /// Controller to return API Endpoints
+    /// </summary>
     [Route("api/[controller]")]
     public class SampleDataController : ControllerBase
     {
@@ -15,6 +18,10 @@ namespace SixDegrees.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
+        /// <summary>
+        /// Return the fake weather for the next 5 days
+        /// </summary>
+        /// <returns>soem fake weather for the next 5 days</returns>
         [HttpGet("[action]")]
 #pragma warning disable CA1822 // Mark members as static
         public IEnumerable<WeatherForecast> WeatherForecasts()

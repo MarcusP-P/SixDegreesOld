@@ -7,16 +7,30 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace SixDegrees
 {
+    /// <summary>
+    /// Startup the web services
+    /// </summary>
     public class Startup
     {
+
+        /// <summary>
+        /// Constructor called with DI
+        /// </summary>
+        /// <param name="configuration">The configuration supplied by DI</param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+        /// <summary>
+        /// The configuration taht we are using
+        /// </summary>
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// This method gets called by the runtime. Use this method to add services to the container.
+        /// </summary>
+        /// <param name="services"></param>
         static public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -28,7 +42,11 @@ namespace SixDegrees
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// </summary>
+        /// <param name="app">Application Builder</param>
+        /// <param name="env">Hosting environment</param>
         static public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())

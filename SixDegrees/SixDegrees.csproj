@@ -8,7 +8,8 @@
     <SpaRoot>ClientApp\</SpaRoot>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
     <CodeAnalysisRuleSet>AllRulesEnabled.ruleset</CodeAnalysisRuleSet>
-    
+    <DocumentationFile>C:\Users\micro\source\repos\SixDegrees\SixDegrees\SixDegrees.xml</DocumentationFile>
+
     <!-- Set this to true if you enable server-side prerendering -->
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
   </PropertyGroup>
