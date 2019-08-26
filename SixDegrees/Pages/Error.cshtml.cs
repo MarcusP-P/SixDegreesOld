@@ -11,12 +11,12 @@ namespace SixDegrees.Pages
     public class ErrorModel : PageModel
     {
         /// <summary>
-        /// RequestID that caused the error.
+        /// Gets or sets the RequestID.
         /// </summary>
+        /// <remarks>This is the RequestID that caused the error.</remarks>
         public string RequestId { get; set; }
 
-        /// <summary>
-        /// Show the requestID of the error.
+        /// <summary>Gets a value indicating whether we have a RequestID.
         /// </summary>
         public bool ShowRequestId => !string.IsNullOrEmpty(this.RequestId);
 

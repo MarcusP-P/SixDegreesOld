@@ -6,22 +6,22 @@
     public class WeatherForecast
     {
         /// <summary>
-        /// Formatted date as a string.
+        /// Gets or sets Formatted date as a string.
         /// </summary>
         public string DateFormatted { get; set; }
 
         /// <summary>
-        /// Temperature in Celcius.
+        /// Gets or sets the temperature in Celcius.
         /// </summary>
         public int TemperatureC { get; set; }
 
         /// <summary>
-        /// Description of the weather.
+        /// Gets or sets the description of the weather.
         /// </summary>
         public string Summary { get; set; }
 
         /// <summary>
-        /// Calculated temperature in Farenheit.
+        /// Gets the calculated temperature in Farenheit.
         /// </summary>
         public int TemperatureF
         {
