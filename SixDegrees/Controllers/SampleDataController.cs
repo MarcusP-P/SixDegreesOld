@@ -1,3 +1,8 @@
+// <copyright file="SampleDataController.cs" company="Marcus Pallinger">
+// Copyright (c) 2019 Marcus Pallinger. All rights reserved.
+// Licensed under the BSD 2-clause license. See LICENSE file in the project root for full license information.
+// </copyright>
+
 namespace SixDegrees.Controllers
 {
     using System;
