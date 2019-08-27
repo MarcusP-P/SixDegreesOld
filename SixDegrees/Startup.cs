@@ -22,7 +22,7 @@ namespace SixDegrees
         }
 
         /// <summary>
-        /// Gets the configuration
+        /// Gets the configuration.
         /// </summary>
         public IConfiguration Configuration { get; }
 
