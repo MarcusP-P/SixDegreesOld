@@ -46,7 +46,7 @@ namespace SixDegrees
             });
 
             // Register the Swagger services
-            services.AddSwaggerDocument();
+            services.AddOpenApiDocument();
         }
 
         /// <summary>
