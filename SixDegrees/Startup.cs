@@ -44,6 +44,9 @@ namespace SixDegrees
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            // Register the Swagger services
+            services.AddSwaggerDocument();
         }
 
         /// <summary>
@@ -68,6 +71,10 @@ namespace SixDegrees
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+
+            // Register the Swagger generator and the Swagger UI middlewares
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
 
             app.UseMvc(routes =>
             {
