@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <IsPackable>false</IsPackable>
@@ -15,9 +15,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.0-preview7.19365.7" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Api.Analyzers" Version="2.2.6" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.CodeAnalysis" Version="3.2.1" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.4">
       <PrivateAssets>all</PrivateAssets>
@@ -61,8 +61,9 @@
 
   <Target Name="NSwag" AfterTargets="Build">
     <Copy SourceFiles="@(Reference)" DestinationFolder="$(OutDir)References" />
-    <Exec Command="$(NSwagExe_Core22) aspnetcore2openapi /assembly:$(ProjectDir)$(OutDir)SixDegrees.dll /output:swagger.v1.json /documentName:v1 /noBuild:true" />
-    <Exec Command="$(NSwagExe_Core22) openapi2tsclient /input:$(ProjectDir)swagger.v1.json /output:$(ProjectDir)ClientApp/src/app/api/SixDegreesApi.v1.ts /baseUrlTokenName:API_BASE /typeScriptVersion:2.7 /template:Angular /promiseType:Promise /httpClass:HttpClient /useSingletonProvider:false /injectionTokenType:InjectionToken /rxJsVersion:6.0" />
+    <!-- Until nswag.msbuild support SP Core 3.0, comment out this line, and create the swagger file manually -->
+    <!--<Exec Command="$(NSwagExe_Core22) aspnetcore2openapi /assembly:$(ProjectDir)$(OutDir)SixDegrees.dll /output:swagger.v1.json /documentName:v1 /noBuild:true" /> -->
+    <Exec Command="$(NSwagExe) openapi2tsclient /input:$(ProjectDir)swagger.v1.json /output:$(ProjectDir)ClientApp/src/app/api/SixDegreesApi.v1.ts /baseUrlTokenName:API_BASE /typeScriptVersion:2.7 /template:Angular /promiseType:Promise /httpClass:HttpClient /useSingletonProvider:false /injectionTokenType:InjectionToken /rxJsVersion:6.0" />
     <RemoveDir Directories="$(OutDir)References" />
   </Target>
 

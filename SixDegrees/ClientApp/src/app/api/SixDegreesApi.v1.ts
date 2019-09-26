@@ -15,7 +15,7 @@ import { HttpClient, HttpHeaders, HttpResponse, HttpResponseBase } from '@angula
 export const API_BASE = new InjectionToken<string>('API_BASE');
 
 @Injectable()
-export class SampleDataClient {
+export class WeatherForecastClient {
     private http: HttpClient;
     private baseUrl: string;
     protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
@@ -29,8 +29,8 @@ export class SampleDataClient {
      * Return the fake weather for the next 5 days.
      * @return Fake weather for the next 5 days.
      */
-    weatherForecasts(): Observable<WeatherForecast[]> {
-        let url_ = this.baseUrl + "/api/SampleData/WeatherForecasts";
+    get(): Observable<WeatherForecast[]> {
+        let url_ = this.baseUrl + "/WeatherForecast";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -42,11 +42,11 @@ export class SampleDataClient {
         };
 
         return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processWeatherForecasts(response_);
+            return this.processGet(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
-                    return this.processWeatherForecasts(<any>response_);
+                    return this.processGet(<any>response_);
                 } catch (e) {
                     return <Observable<WeatherForecast[]>><any>_observableThrow(e);
                 }
@@ -55,7 +55,7 @@ export class SampleDataClient {
         }));
     }
 
-    protected processWeatherForecasts(response: HttpResponseBase): Observable<WeatherForecast[]> {
+    protected processGet(response: HttpResponseBase): Observable<WeatherForecast[]> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -84,14 +84,14 @@ export class SampleDataClient {
 
 /** the Weather DTO object. */
 export class WeatherForecast implements IWeatherForecast {
-    /** Gets or sets Formatted date as a string. */
-    dateFormatted?: string | undefined;
+    /** Gets or sets the date of the forecast. */
+    date?: Date;
     /** Gets or sets the temperature in Celcius. */
     temperatureC?: number;
-    /** Gets or sets the description of the weather. */
-    summary?: string | undefined;
     /** Gets the calculated temperature in Farenheit. */
     temperatureF?: number;
+    /** Gets or sets the description of the weather. */
+    summary?: string | undefined;
 
     constructor(data?: IWeatherForecast) {
         if (data) {
@@ -104,10 +104,10 @@ export class WeatherForecast implements IWeatherForecast {
 
     init(data?: any) {
         if (data) {
-            this.dateFormatted = data["dateFormatted"];
+            this.date = data["date"] ? new Date(data["date"].toString()) : <any>undefined;
             this.temperatureC = data["temperatureC"];
-            this.summary = data["summary"];
             this.temperatureF = data["temperatureF"];
+            this.summary = data["summary"];
         }
     }
 
@@ -120,24 +120,24 @@ export class WeatherForecast implements IWeatherForecast {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["dateFormatted"] = this.dateFormatted;
+        data["date"] = this.date ? this.date.toISOString() : <any>undefined;
         data["temperatureC"] = this.temperatureC;
-        data["summary"] = this.summary;
         data["temperatureF"] = this.temperatureF;
+        data["summary"] = this.summary;
         return data; 
     }
 }
 
 /** the Weather DTO object. */
 export interface IWeatherForecast {
-    /** Gets or sets Formatted date as a string. */
-    dateFormatted?: string | undefined;
+    /** Gets or sets the date of the forecast. */
+    date?: Date;
     /** Gets or sets the temperature in Celcius. */
     temperatureC?: number;
-    /** Gets or sets the description of the weather. */
-    summary?: string | undefined;
     /** Gets the calculated temperature in Farenheit. */
     temperatureF?: number;
+    /** Gets or sets the description of the weather. */
+    summary?: string | undefined;
 }
 
 export class ApiException extends Error {

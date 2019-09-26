@@ -8,6 +8,7 @@ namespace SixDegrees.Pages
     using System.Diagnostics;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.RazorPages;
+    using Microsoft.Extensions.Logging;
 
     /// <summary>
     /// ViewModel for the error page.
@@ -17,6 +18,19 @@ namespace SixDegrees.Pages
     public class ErrorModel : PageModel
 #pragma warning restore SA1649 // File name should match first type name
     {
+#pragma warning disable IDE0052 // Remove unread private members
+        private readonly ILogger<ErrorModel> logger;
+#pragma warning restore IDE0052 // Remove unread private members
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ErrorModel"/> class.
+        /// </summary>
+        /// <param name="logger">The logger supplied by DI.</param>
+        public ErrorModel(ILogger<ErrorModel> logger)
+        {
+            this.logger = logger;
+        }
+
         /// <summary>
         /// Gets or sets the RequestID.
         /// </summary>
