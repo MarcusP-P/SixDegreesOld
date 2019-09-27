@@ -37,7 +37,7 @@ namespace SixDegrees
         /// <param name="services">Service collection.</param>
         public static void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews()
                 // Required for NSwag for now.
                 .AddNewtonsoftJson();
 
