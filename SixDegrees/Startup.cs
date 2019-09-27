@@ -80,7 +80,6 @@ namespace SixDegrees
 
             app.UseRouting();
 
-
             // Register the Swagger generator and the Swagger UI middlewares
             app.UseOpenApi();
             app.UseSwaggerUi3();
