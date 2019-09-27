@@ -20,8 +20,7 @@ namespace SixDegrees
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(options => options.EnableEndpointRouting = false);
-
+            services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -45,13 +44,18 @@ namespace SixDegrees
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseSpaStaticFiles();
-
-            app.UseMvc(routes =>
+            if (!env.IsDevelopment())
             {
-                routes.MapRoute(
+                app.UseSpaStaticFiles();
+            }
+
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller}/{action=Index}/{id?}");
+                    pattern: "{controller}/{action=Index}/{id?}");
             });
 
             app.UseSpa(spa =>
