@@ -9,10 +9,8 @@ import { WeatherForecastClient, WeatherForecast } from '../api/SixDegreesApi.v1'
 export class FetchDataComponent {
   public forecasts: WeatherForecast[];
 
-//  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-//    http.get<WeatherForecast[]>(baseUrl + 'weatherforecast').subscribe(result => {
-    constructor(weatherForecastClient: WeatherForecastClient) {
-      weatherForecastClient.get().subscribe(result => {
+  constructor(weatherForecastClient: WeatherForecastClient) {
+    weatherForecastClient.get().subscribe(result => {
       this.forecasts = result;
     }, error => console.error(error));
   }
