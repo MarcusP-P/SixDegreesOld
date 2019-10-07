@@ -1,6 +1,5 @@
-import { Component, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { WeatherForecastClient, WeatherForecast } from '../api/SixDegreesApi.v1';
+import { Component } from '@angular/core';
+import { WeatherForecastClient, WeatherForecast } from '../api/SixDegreesApi.v1'; // eslint-disable-line no-unused-vars
 
 @Component({
   selector: 'app-fetch-data',

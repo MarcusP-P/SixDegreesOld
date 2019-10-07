@@ -1,9 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'; // eslint-disable-line no-unused-vars
 
 import { CounterComponent } from './counter.component';
 
 describe('CounterComponent', () => {
-  let component: CounterComponent;
+  let component: CounterComponent; // eslint-disable-line no-unused-vars
   let fixture: ComponentFixture<CounterComponent>;
 
   beforeEach(async(() => {
