@@ -10,7 +10,7 @@
     <CodeAnalysisRuleSet>AllRulesEnabled.ruleset</CodeAnalysisRuleSet>
     <DocumentationFile>$(MSBuildProjectDirectory)\SixDegrees.xml</DocumentationFile>
     <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
-
+    <Nullable>enable</Nullable>
     <!-- Set this to true if you enable server-side prerendering -->
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
   </PropertyGroup>

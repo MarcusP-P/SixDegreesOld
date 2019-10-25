@@ -55,8 +55,7 @@
           },
           "summary": {
             "type": "string",
-            "description": "Gets or sets the description of the weather.",
-            "nullable": true
+            "description": "Gets or sets the description of the weather."
           }
         }
       }

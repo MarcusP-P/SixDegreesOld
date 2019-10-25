@@ -13,6 +13,19 @@ namespace SixDegrees
     public class WeatherForecast
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="WeatherForecast"/> class.
+        /// </summary>
+        /// <param name="date">Date of the forecast.</param>
+        /// <param name="temperatureC">The Temperature, in Celcius.</param>
+        /// <param name="summary">Description of the weather.</param>
+        public WeatherForecast(DateTime date, int temperatureC, string summary)
+        {
+            this.Date = date;
+            this.TemperatureC = temperatureC;
+            this.Summary = summary;
+        }
+
+        /// <summary>
         /// Gets or sets the date of the forecast.
         /// </summary>
         public DateTime Date { get; set; }

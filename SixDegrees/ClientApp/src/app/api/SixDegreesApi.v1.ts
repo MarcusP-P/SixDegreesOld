@@ -91,7 +91,7 @@ export class WeatherForecast implements IWeatherForecast {
     /** Gets the calculated temperature in Farenheit. */
     temperatureF?: number;
     /** Gets or sets the description of the weather. */
-    summary?: string | undefined;
+    summary?: string;
 
     constructor(data?: IWeatherForecast) {
         if (data) {
@@ -137,7 +137,7 @@ export interface IWeatherForecast {
     /** Gets the calculated temperature in Farenheit. */
     temperatureF?: number;
     /** Gets or sets the description of the weather. */
-    summary?: string | undefined;
+    summary?: string;
 }
 
 export class ApiException extends Error {
