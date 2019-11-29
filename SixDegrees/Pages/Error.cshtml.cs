@@ -2,6 +2,9 @@
 // Copyright (c) 2019 Marcus Pallinger. All rights reserved.
 // Licensed under the BSD 2-clause license. See LICENSE file in the project root for full license information.
 // </copyright>
+// <summary>
+// Contains the ErrorModel class, which is the model for the error page.
+// </summary>
 
 namespace SixDegrees.Pages
 {
@@ -39,8 +42,12 @@ namespace SixDegrees.Pages
         /// </value>
         public string? RequestId { get; set; }
 
-        /// <summary>Gets a value indicating whether we have a RequestID.
+        /// <summary>
+        /// Gets a value indicating whether we have a RequestID.
         /// </summary>
+        /// <value>
+        /// Set tot rue if we have a RequestId.
+        /// </value>
         public bool ShowRequestId => !string.IsNullOrEmpty(this.RequestId);
 
         /// <summary>

@@ -2,6 +2,9 @@
 // Copyright (c) 2019 Marcus Pallinger. All rights reserved.
 // Licensed under the BSD 2-clause license. See LICENSE file in the project root for full license information.
 // </copyright>
+// <summary>
+// Contains the WeatherForecastController class, which gives us the weather API interface.
+// </summary>
 
 namespace SixDegrees.Controllers
 {
