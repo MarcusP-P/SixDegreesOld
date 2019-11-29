@@ -60,8 +60,10 @@ namespace SixDegrees.Controllers
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast(
                 DateTime.Now.AddDays(index),
+#pragma warning disable CA5394 // Do not use insecure randomness
                 rng.Next(-20, 55),
                 Summaries[rng.Next(Summaries.Length)]))
+#pragma warning restore CA5394 // Do not use insecure randomness
             .ToArray();
         }
     }
