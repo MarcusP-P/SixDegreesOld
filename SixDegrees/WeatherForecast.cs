@@ -28,16 +28,25 @@ namespace SixDegrees
         /// <summary>
         /// Gets or sets the date of the forecast.
         /// </summary>
+        /// <value>
+        /// <placeholder>The date of the forecast.</placeholder>
+        /// </value>
         public DateTime Date { get; set; }
 
         /// <summary>
         /// Gets or sets the temperature in Celcius.
         /// </summary>
+        /// <remarks>
+        /// The temperature in Celcius.
+        /// </remarks>
         public int TemperatureC { get; set; }
 
         /// <summary>
         /// Gets the calculated temperature in Farenheit.
         /// </summary>
+        /// <value>
+        /// <placeholder>The calculated temperature in Farenheit.</placeholder>
+        /// </value>
         public int TemperatureF => 32 + (int)(this.TemperatureC / 0.5556);
 
         /// <summary>

@@ -29,6 +29,9 @@ namespace SixDegrees
         /// <summary>
         /// Gets the configuration.
         /// </summary>
+        /// <value>
+        /// The global configuration of the server.
+        /// </value>
         public IConfiguration Configuration { get; }
 
         /// <summary>

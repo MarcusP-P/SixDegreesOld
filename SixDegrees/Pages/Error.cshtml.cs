@@ -34,7 +34,9 @@ namespace SixDegrees.Pages
         /// <summary>
         /// Gets or sets the RequestID.
         /// </summary>
-        /// <remarks>This is the RequestID that caused the error.</remarks>
+        /// <value>
+        /// This is the RequestID that caused the error.
+        /// </value>
         public string? RequestId { get; set; }
 
         /// <summary>Gets a value indicating whether we have a RequestID.
