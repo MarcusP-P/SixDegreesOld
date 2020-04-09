@@ -8,6 +8,7 @@
 
 namespace SixDegrees
 {
+    using System.Diagnostics.Contracts;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -69,6 +70,14 @@ namespace SixDegrees
         public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 #pragma warning restore SA1204 // Static elements should appear before instance elements
         {
+            Contract.Requires(app != null);
+
+            using (var scope = app!.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            using (var context = scope.ServiceProvider.GetService<MoviesContext>())
+            {
+                context.Database.Migrate();
+            }
+
             if (env.IsDevelopment())
             {
                 _ = app.UseDeveloperExceptionPage();
