@@ -46,10 +46,7 @@ namespace SixDegrees
         /// <param name="services">Service collection.</param>
         public void ConfigureServices(IServiceCollection services)
         {
-            _ = services.AddControllersWithViews()
-
-                // Required for NSwag for now.
-                .AddNewtonsoftJson();
+            _ = services.AddControllersWithViews();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration => configuration.RootPath = "ClientApp/dist");
