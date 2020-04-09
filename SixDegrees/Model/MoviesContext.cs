@@ -15,6 +15,15 @@ namespace SixDegrees.Model
     public class MoviesContext : DbContext
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="MoviesContext"/> class.
+        /// </summary>
+        /// <param name="options">The context options.</param>
+        public MoviesContext(DbContextOptions<MoviesContext> options)
+        : base(options)
+        {
+        }
+
+        /// <summary>
         /// Gets or sets the People table.
         /// </summary>
         /// <value>

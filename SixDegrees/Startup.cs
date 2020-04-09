@@ -11,9 +11,11 @@ namespace SixDegrees
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.SpaServices.AngularCli;
+    using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using SixDegrees.Model;
 
     /// <summary>
     /// Startup the web services.
@@ -41,7 +43,7 @@ namespace SixDegrees
         /// This method gets called by the runtime. Use this method to add services to the container.
         /// </summary>
         /// <param name="services">Service collection.</param>
-        public static void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
             _ = services.AddControllersWithViews()
 
@@ -53,6 +55,9 @@ namespace SixDegrees
 
             // Register the Swagger services
             _ = services.AddOpenApiDocument();
+
+            _ = services.AddDbContext<MoviesContext>(options =>
+                options.UseSqlServer(this.Configuration.GetConnectionString("MoviesDatabase")));
         }
 
         /// <summary>
@@ -60,7 +65,9 @@ namespace SixDegrees
         /// </summary>
         /// <param name="app">Application Builder.</param>
         /// <param name="env">Hosting environment.</param>
+#pragma warning disable SA1204 // Static elements should appear before instance elements
         public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+#pragma warning restore SA1204 // Static elements should appear before instance elements
         {
             if (env.IsDevelopment())
             {
