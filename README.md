@@ -9,3 +9,6 @@ A website to calculate someone's Bacon Number from IMDB
 *  dotnet new angular --name SixDegrees
 *  dotnet sln add SixDegrees
 
+## How to connect to an SQL Server
+
+dotnet user-secrets set "ConnectionStrings:MoviesDatabase" "connectionstring"
