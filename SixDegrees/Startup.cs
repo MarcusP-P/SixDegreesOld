@@ -43,19 +43,16 @@ namespace SixDegrees
         /// <param name="services">Service collection.</param>
         public static void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews()
+            _ = services.AddControllersWithViews()
 
                 // Required for NSwag for now.
                 .AddNewtonsoftJson();
 
             // In production, the Angular files will be served from this directory
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "ClientApp/dist";
-            });
+            services.AddSpaStaticFiles(configuration => configuration.RootPath = "ClientApp/dist");
 
             // Register the Swagger services
-            services.AddOpenApiDocument();
+            _ = services.AddOpenApiDocument();
         }
 
         /// <summary>
@@ -67,35 +64,34 @@ namespace SixDegrees
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                _ = app.UseDeveloperExceptionPage();
             }
             else
             {
-                app.UseExceptionHandler("/Error");
+                _ = app.UseExceptionHandler("/Error");
 
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                _ = app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            _ = app.UseHttpsRedirection();
+            _ = app.UseStaticFiles();
+
             if (!env.IsDevelopment())
             {
                 app.UseSpaStaticFiles();
             }
 
-            app.UseRouting();
+            _ = app.UseRouting();
 
             // Register the Swagger generator and the Swagger UI middlewares
-            app.UseOpenApi();
-            app.UseSwaggerUi3();
+            _ = app.UseOpenApi();
+            _ = app.UseSwaggerUi3();
 
-            app.UseEndpoints(endpoints =>
-            {
+            _ = app.UseEndpoints(endpoints =>
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
-            });
+                    pattern: "{controller}/{action=Index}/{id?}"));
 
             app.UseSpa(spa =>
             {
