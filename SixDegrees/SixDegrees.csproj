@@ -67,6 +67,7 @@
     <RemoveDir Directories="$(OutDir)References" />
   </Target>
   <Target Name="ESLint" AfterTargets="NSwag">
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
     <Exec Command="npx eslint &quot;src/**/*.{ts,tsx}&quot;" WorkingDirectory="$(ProjectDir)/ClientApp" />
   </Target>
   <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
