@@ -1,9 +1,9 @@
 trigger:
-- master
-- develop
-- feature/*
-- release/*
-- hotfix/*
+  - master
+  - develop
+  - feature/*
+  - release/*
+  - hotfix/*
 
 
 variables:
@@ -16,6 +16,11 @@ variables:
 
 pool:
   name: Azure Pipelines
+  vmImage: 'windows-2019'
+  demands:
+  - msbuild
+  - visualstudio
+  - vstest
 
 steps:
 - task: DotNetCoreCLI@2
