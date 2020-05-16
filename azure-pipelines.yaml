@@ -1,8 +1,4 @@
 variables:
-- task: UseDotNet@2
-  inputs:
-    packageType: 'sdk'
-    version: '3.1'
   Parameters.solution: '**/*.sln'
   BuildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
@@ -19,6 +15,11 @@ pool:
   - vstest
 
 steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '3.1'
+
 - task: DotNetCoreCLI@2
   displayName: Restore
   inputs:
