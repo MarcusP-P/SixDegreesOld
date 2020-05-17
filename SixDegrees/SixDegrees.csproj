@@ -67,7 +67,8 @@
     <RemoveDir Directories="$(OutDir)References" />
   </Target>
   <Target Name="ESLint" AfterTargets="NSwag">
-    <Exec Command="ng lint" WorkingDirectory="$(ProjectDir)/ClientApp" />
+    <Exec Command="npm install --no-save @angular/cli" WorkingDirectory="$(SpaRoot)" />
+    <Exec Command="ng lint" WorkingDirectory="$(SpaRoot)" />
   </Target>
   <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
     <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
