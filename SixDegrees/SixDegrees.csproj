@@ -68,7 +68,7 @@
   </Target>
   <Target Name="ESLint" AfterTargets="NSwag">
     <Exec Command="npm install --no-save @angular/cli" WorkingDirectory="$(SpaRoot)" />
-    <Exec Command="ng lint" WorkingDirectory="$(SpaRoot)" />
+    <Exec Command="node_modules/.bin/ng.cmd lint" WorkingDirectory="$(SpaRoot)" />
   </Target>
   <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
     <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
