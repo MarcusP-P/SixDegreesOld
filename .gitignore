@@ -264,3 +264,4 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 /SixDegrees/SixDegrees.xml
+SixDegrees/Server/SixDegrees.xml
